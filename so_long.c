@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/08 15:01:07 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/08 15:01:44 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main()
     
     mlx_hook(ptr->mlx_win,2, 0, destroy, ptr);
     mlx_loop(ptr->mlx_ptr);
-    // mlx_destroy_display(ptr->mlx_ptr);
+    
     free(ptr->mlx_ptr);
     free(ptr);
     exit(0);
