@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/08 17:37:07 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/08 20:32:02 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 int	destroy(int key, t_long *ptr)
 {
 	t_long	*s;
-
+	
 	s = ptr;
+
 	ft_printf("%d\n", key);
-	if (key == 53)
+	// if (key == 53 || key == 1)
+    // {
 		mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
+		exit(0);
+    // }
 	return (key);
 }
 
@@ -43,9 +47,9 @@ int	main(void)
 	mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.mlx_img, 0, 0);
 
 	mlx_hook(ptr->mlx_win, 2, 0, destroy, ptr);
+	mlx_mouse_hook(ptr->mlx_win, destroy, ptr);
 	mlx_loop(ptr->mlx_ptr);
 
 	free(ptr->mlx_ptr);
 	free(ptr);
-	exit(0);
 }
