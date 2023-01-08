@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   helped.h                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/08 16:24:31 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/08 17:00:40 by woumecht         ###   ########.fr       */
+/*   Created: 2023/01/08 16:58:57 by woumecht          #+#    #+#             */
+/*   Updated: 2023/01/08 17:03:50 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HELPED_H
-# define HELPED_H
-# include <stdlib.h>
-# include <unistd.h>
+#include "helped.h"
 
-int		ft_strlen(char *str);
-char	**ft_split(char *s);
-char	*ft_strdup(char *str);
-char	*ft_substr(char *s, int start, int len);
+char	*ft_strdup(char *s)
+{
+    char *str;
+    int i;
+    int len;
 
-#endif
+    i = 0;
+    len = ft_strlen(s);
+    str = malloc((len + 1) * sizeof(char));
+    while (s[i])
+    {
+        str[i] = s[i];
+        i++;   
+    }
+    str[i] = '\0';
+    return (str);
+}

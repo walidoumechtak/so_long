@@ -6,11 +6,11 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:22:26 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/08 16:23:29 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:59:24 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "helped.h"
 
 int ft_strlen(char *str)
 {
