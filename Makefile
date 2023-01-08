@@ -2,12 +2,13 @@ CC=cc
 CFLAGS=-Wall -Wextra -Werror
 NAME=so_long
 
+
 OBJ=so_long.o \
 
 all:$(NAME)
 
 $(NAME):$(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o  $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

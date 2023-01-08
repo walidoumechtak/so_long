@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/07 14:54:29 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/08 09:36:56 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 #define SO_LONG_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include "mlx.h"
+#include "ft_printf/ft_printf.h"
 
 typedef struct s_image
 {
