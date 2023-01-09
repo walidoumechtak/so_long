@@ -9,6 +9,7 @@ OBJ=so_long.o \
 	get_next_line/get_next_line_utils.o \
 	helped_functions/ft_split.o \
 	helped_functions/ft_substr.o \
+	handle_map/is_5_comp.o \
 
 all:$(NAME)
 
