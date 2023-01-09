@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/09 18:02:31 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:27:36 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int	main(int ac, char **av)
 		if (!ptr)
 			return (1);
 		ptr->string = map_to_array(av[1]);
-		if (is_5_comp(ptr->string) == 0 || is_ECP_exist(ptr->string) == 0)
+		printf("-- %d -- \n", is_rectangular(ptr->string));
+		if (is_5_comp(ptr->string) == 0 || is_ECP_exist(ptr->string) == 0
+		|| is_rectangular(ptr->string) == 0)
 		{
 			free(ptr);
 			ft_printf("Error : Invalid map\n");
