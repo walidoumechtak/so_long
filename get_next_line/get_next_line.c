@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: woumecht <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:03:19 by woumecht          #+#    #+#             */
-/*   Updated: 2022/11/13 21:26:46 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:40:24 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*read_line(int fd, char *buf)
 		tmp = ft_strjoin(buf, join);
 		free(buf);
 		buf = tmp;
-		if (ft_strchr(buf, '\n') > -1)
+		if (ft_strchr_v2(buf, '\n') > -1)
 			break ;
 		i = read(fd, join, BUFFER_SIZE);
 	}

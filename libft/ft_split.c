@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/08 15:12:06 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/09 18:37:08 by woumecht         ###   ########.fr       */
+/*   Created: 2022/10/14 20:01:22 by woumecht          #+#    #+#             */
+/*   Updated: 2023/01/09 20:28:05 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "libft.h"
 
-int	count_word(const char *s, char c)
+static int	count_word(const char *s, char c)
 {
 	int	i;
 	int	wc;
@@ -35,7 +35,7 @@ int	count_word(const char *s, char c)
 	return (wc);
 }
 
-void	*free_split(char **split, int k)
+static void	*free_split(char **split, int k)
 {
 	int	i;
 
@@ -49,7 +49,7 @@ void	*free_split(char **split, int k)
 	return (NULL);
 }
 
-char	**to_split(char *s, char c, char **split)
+static char	**to_split(char *s, char c, char **split)
 {
 	int	i;
 	int	k;
@@ -77,7 +77,7 @@ char	**to_split(char *s, char c, char **split)
 
 char	**ft_split(char const *s, char c)
 {
-	char **split;
+	char	**split;
 
 	if (s == NULL)
 		return (NULL);
@@ -86,4 +86,14 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	split = to_split((char *)s, c, split);
 	return (split);
+}
+
+int main()
+{
+	char *s;
+	char **str;
+
+	s = "walid and med";
+	str = ft_split(s, ' ');
+	printf("%s", str[0]);
 }
