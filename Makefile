@@ -10,6 +10,7 @@ OBJ=so_long.o \
 	helped_functions/ft_split.o \
 	helped_functions/ft_substr.o \
 	handle_map/is_5_comp.o \
+	handle_map/is_ECP_exist.o
 
 all:$(NAME)
 
