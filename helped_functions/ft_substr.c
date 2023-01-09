@@ -6,11 +6,11 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:25:53 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/08 17:37:00 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:25:51 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helped.h"
+#include "../so_long.h"
 
 char	*ft_substr(char *s, int start, int len)
 {
@@ -28,7 +28,7 @@ char	*ft_substr(char *s, int start, int len)
 	i = 0;
 	str = malloc(sizeof(char));
 	if (!str)
-		reutnr(NULL);
+		return (NULL);
 	if (start > len_string)
 		while (start <= len)
 		{

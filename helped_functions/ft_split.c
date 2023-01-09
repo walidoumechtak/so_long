@@ -6,11 +6,11 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 15:12:06 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/08 17:37:03 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:24:58 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "helped.h"
+#include "../so_long.h"
 
 int	count_word(const char *s, char c)
 {

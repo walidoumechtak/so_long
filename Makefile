@@ -4,8 +4,11 @@ NAME=so_long
 
 
 OBJ=so_long.o \
+	read_map.o \
 	get_next_line/get_next_line.o \
 	get_next_line/get_next_line_utils.o \
+	helped_functions/ft_split.o \
+	helped_functions/ft_substr.o \
 
 all:$(NAME)
 
