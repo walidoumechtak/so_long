@@ -6,11 +6,11 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:03:23 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/09 20:45:54 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/10 05:56:35 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../so_long.h"
 
 void	*free_it(char *s1, char *s2)
 {
@@ -19,17 +19,17 @@ void	*free_it(char *s1, char *s2)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	i;
 
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
-}
+// 	i = 0;
+// 	while (s[i])
+// 	{
+// 		i++;
+// 	}
+// 	return (i);
+// }
 
 int	ft_strchr_v2(const char *s, int c)
 {
@@ -47,25 +47,25 @@ int	ft_strchr_v2(const char *s, int c)
 	return (-1);
 }
 
-char	*ft_strdup(const char *s1)
-{
-	char	*ptr;
-	char	*str;
-	size_t	i;
+// char	*ft_strdup(const char *s1)
+// {
+// 	char	*ptr;
+// 	char	*str;
+// 	size_t	i;
 
-	str = (char *)s1;
-	i = 0;
-	ptr = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
-	if (!ptr)
-		return (NULL);
-	while (i < ft_strlen(str) && s1)
-	{
-		ptr[i] = str[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
+// 	str = (char *)s1;
+// 	i = 0;
+// 	ptr = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
+// 	if (!ptr)
+// 		return (NULL);
+// 	while (i < ft_strlen(str) && s1)
+// 	{
+// 		ptr[i] = str[i];
+// 		i++;
+// 	}
+// 	ptr[i] = '\0';
+// 	return (ptr);
+// }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

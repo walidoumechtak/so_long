@@ -6,11 +6,11 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:03:19 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/09 20:40:24 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/10 05:55:19 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../so_long.h"
 
 char	*read_line(int fd, char *buf)
 {
