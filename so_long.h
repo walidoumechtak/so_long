@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/09 20:30:36 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/10 06:25:30 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ft_printf/ft_printf.h"
 # include "get_next_line/get_next_line.h"
-#include "libft/libft.h"
+# include "libft/libft.h"
 # include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
@@ -46,5 +46,6 @@ char		*map_to_array(char *map_path);
 int			is_5_comp(char *string);
 int			is_ECP_exist(char *str);
 int			is_rectangular(char *str);
+int			is_closed_by_walls(char *str);
 
 #endif

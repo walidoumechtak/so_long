@@ -10,6 +10,7 @@ OBJ=so_long.o \
 	handle_map/is_5_comp.o \
 	handle_map/is_ECP_exist.o \
 	handle_map/is_rectangular.o \
+	handle_map/is_closed_by_walls.o \
 
 all:$(NAME)
 

@@ -1,57 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_rectangular.c                                   :+:      :+:    :+:   */
+/*   is_closed_by_walls.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 18:09:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/10 06:04:15 by woumecht         ###   ########.fr       */
+/*   Created: 2023/01/10 06:02:42 by woumecht          #+#    #+#             */
+/*   Updated: 2023/01/10 06:25:17 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	free_s(char **arr)
+int	check_last_and_first(char *first, char *last)
 {
 	int	i;
 
 	i = 0;
-	while (arr[i])
+	while (first[i] && last[i])
 	{
-		free(arr[i]);
+		if (first[i] != '1' || last[i] != '1')
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
-
-
-int	is_rectangular(char *str)
+int	is_closed_by_walls(char *str)
 {
-	char	**s;
+	char	**arr;
+	char	*l;
+	int		last;
+	int		length_line;
 	int		i;
-	int		j;
-	int		n1;
-	int		n2;
 
-	s = ft_split(str, '\n');
+	arr = ft_split(str, '\n');
+	last = 0;
+	length_line = ft_strlen(arr[0]);
+	while (arr[last + 1])
+		last++;
+	l = arr[last];
+	if (check_last_and_first(arr[0], l) == 0)
+		return (0);
 	i = 0;
-	j = 0;
-	while (s[j])
-		j++;
-	while (i < j - 1)
+	while (arr[i + 1])
 	{
-		n1 = ft_strlen(s[i]);
-		n2 = ft_strlen(s[i + 1]);
-		if (n1 != n2)
-		{
-			free_s(s);
-			free(s);
+		if (arr[i + 1][0] != '1' || arr[i + 1][length_line - 1] != '1')
 			return (0);
-		}
 		i++;
 	}
-	free_s(s);
-	free(s);
 	return (1);
 }
