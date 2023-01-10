@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/10 06:45:01 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:45:48 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@
 
 typedef struct s_image
 {
-	void	*img;
+	void	*back_img;
+	void	*wall_img;
+	void	*player_img;
+	void	*collect_img;
+	void	*enemy_img;
 	int	x;
 	int	y;
 }			t_image;
@@ -33,8 +37,8 @@ typedef struct s_long
 	void	*mlx_ptr;
 	void	*mlx_win;
 	char	*string;
-	int		x;
-	int		y;
+	int		witdt;
+	int		height;
 	t_image	img;
 }			t_long;
 
@@ -48,3 +52,5 @@ int			is_rectangular(char *str);
 int			is_closed_by_walls(char *str);
 
 #endif
+
+
