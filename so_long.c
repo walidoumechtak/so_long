@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/10 06:25:47 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/10 08:15:19 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,15 @@ int	main(int ac, char **av)
 			free(ptr->mlx_win);
 			return (1);
 		}
-		// ptr->img.mlx_img = mlx_new_image(ptr->mlx_ptr, 600, 600);
-		// mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.mlx_img, 0, 0);
+		ptr->img.x = 600;
+		ptr->img.y = 600;
+		ptr->img.img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/background.xpm", &(ptr->img.x), &(ptr->img.y));
+		if (ptr->img.img == NULL)
+		{
+			ft_printf("wahya ...");
+			return (0);
+		}
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.img, 0, 0);
 
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 		mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
