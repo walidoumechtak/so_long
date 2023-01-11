@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/10 18:37:21 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 08:48:38 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	ft_exit(t_long *ptr)
 	exit (0);
 }
 
-void	fill_image_add(t_long *ptr)
+void	fill_image_addr(t_long *ptr)
 {
 	ptr->img.back_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/background.xpm", &(ptr->img.x), &(ptr->img.y));
+	ptr->img.wall_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/wall.xpm", &(ptr->img.m), &(ptr->img.n));
 }
 
 int	main(int ac, char **av)
@@ -50,10 +51,10 @@ int	main(int ac, char **av)
 			return (1);
 		ptr->string = map_to_array(av[1]);
 		arr = ft_split(ptr->string, '\n');
-		ptr->witdt = ft_strlen(arr[0]) * 100;
+		ptr->witdt = ft_strlen(arr[0]) * 60;
 		while (arr[j])
 			j++;
-		ptr->height = j * 100;
+		ptr->height = j * 60;
 		if (is_5_comp(ptr->string) == 0 || is_ECP_exist(ptr->string) == 0
 		|| is_rectangular(ptr->string) == 0 || is_closed_by_walls(ptr->string) == 0)
 		{
@@ -70,30 +71,26 @@ int	main(int ac, char **av)
 			free(ptr->mlx_win);
 			return (1);
 		}
-		fill_image_add(ptr);
+		fill_image_addr(ptr);
 		
 		while (arr[i])
 		{
 			j = 0;
 			while (arr[i][j])
 			{
-				mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, (ptr->img.x) * i, (ptr->img.y) * j);
+				mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, (ptr->img.x) * j, (ptr->img.y) * i);
+				if (arr[i][j] == '1')
+					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img, (ptr->img.m) * j, (ptr->img.n) * i);
 				j++;
 			}
 			i++;
 		}
-		if (ptr->img.back_img == NULL)
-		{
-			ft_printf("wahya ...");
-			return (0);
-		}
-
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 		mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
 		mlx_loop(ptr->mlx_ptr);
 
 		free(ptr->mlx_ptr);
-		free(ptr);	
+		free(ptr);
 	}
 	// =================================
 }

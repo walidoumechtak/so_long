@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/10 17:45:48 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 08:13:15 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef struct s_image
 	void	*enemy_img;
 	int	x;
 	int	y;
+	int	m;
+	int	n;
 }			t_image;
 
 typedef struct s_long
