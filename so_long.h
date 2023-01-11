@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 08:13:15 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 08:53:20 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_image
 	int	y;
 	int	m;
 	int	n;
+	int	e1;
+	int	e2;
 }			t_image;
 
 typedef struct s_long

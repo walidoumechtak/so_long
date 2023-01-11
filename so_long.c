@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 08:48:38 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 09:02:53 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,37 @@ void	fill_image_addr(t_long *ptr)
 {
 	ptr->img.back_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/background.xpm", &(ptr->img.x), &(ptr->img.y));
 	ptr->img.wall_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/wall.xpm", &(ptr->img.m), &(ptr->img.n));
+	ptr->img.enemy_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/enemy.xpm", &(ptr->img.e1), &(ptr->img.e2));
+}
+
+void	put_all_images_to_wind(t_long *ptr, char **arr)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (arr[i])
+		{
+			j = 0;
+			while (arr[i][j])
+			{
+				mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, (ptr->img.x) * j, (ptr->img.y) * i);
+				if (arr[i][j] == '1')
+					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img, (ptr->img.m) * j, (ptr->img.n) * i);
+				if (arr[i][j] == 'E')
+					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.enemy_img, (ptr->img.e1) * j, (ptr->img.e2) * i);
+				j++;
+			}
+			i++;
+		}
 }
 
 int	main(int ac, char **av)
 {
 	t_long *ptr;
 	char **arr;
-	int	i;
-	int	j;
 	
 	// ================================
-	i = 0;
-	j = 0;
 	if (ac == 2)
 	{
 		ptr = malloc(sizeof(t_long));
@@ -71,20 +90,9 @@ int	main(int ac, char **av)
 			free(ptr->mlx_win);
 			return (1);
 		}
-		fill_image_addr(ptr);
+		fill_image_addr(ptr); // fill image address ........................
+		put_all_images_to_wind(ptr, arr); // put images to window ........................
 		
-		while (arr[i])
-		{
-			j = 0;
-			while (arr[i][j])
-			{
-				mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, (ptr->img.x) * j, (ptr->img.y) * i);
-				if (arr[i][j] == '1')
-					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img, (ptr->img.m) * j, (ptr->img.n) * i);
-				j++;
-			}
-			i++;
-		}
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 		mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
 		mlx_loop(ptr->mlx_ptr);
