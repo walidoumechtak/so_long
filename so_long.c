@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 15:28:52 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 16:16:23 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	hand_event(int key, t_long *ptr)
 	int	y;
 	int	y2;
 	
-	i = 1;
 	if (key == 53)
 	{
 		mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
@@ -56,13 +55,20 @@ int	hand_event(int key, t_long *ptr)
 		y2 = ptr->img.s2 * ptr->p.z;
 		y = y2 - 60;
 		ptr->img.s2 = y2;
-		printf("\n%d\n", y2);
-		printf("\n%d\n", y);
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1, y);
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img, ptr->img.s1, y);
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1, y2);
-		ft_printf("www");
 		ptr->img.s2 = y;
 		ptr->p.z = 1;
+	}
+	else if (key == 125)
+	{
+		y2 = ptr->img.s2 * ptr->p.z;
+		y = y2 + 60;
+		ptr->img.s2 = y2;
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.bottom_img, ptr->img.s1, y);
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1, y2);
+		ptr->img.s2 = y;
 	}
 	
 	return (0);	
@@ -84,6 +90,9 @@ void	fill_image_addr(t_long *ptr)
 	ptr->img.wall_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/wall.xpm", &(ptr->img.m), &(ptr->img.n));
 	ptr->img.enemy_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/enemy.xpm", &(ptr->img.e1), &(ptr->img.e2));
 	ptr->img.ship_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/ship.xpm", &(ptr->img.s1), &(ptr->img.s2));
+	ptr->img.left_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/left.xpm", &(ptr->img.s1), &(ptr->img.s2));
+	ptr->img.bottom_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/bottom.xpm", &(ptr->img.s1), &(ptr->img.s2));
+	ptr->img.right_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/right.xpm", &(ptr->img.s1), &(ptr->img.s2));
 	ptr->img.collect_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/col.xpm", &(ptr->img.c1), &(ptr->img.c2));
 	ptr->img.exit_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/exit.xpm", &(ptr->img.x1), &(ptr->img.x2));
 }

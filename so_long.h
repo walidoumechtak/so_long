@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 12:36:09 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:55:30 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ typedef struct s_image
 	void	*back_img;
 	void	*wall_img;
 	void	*ship_img;
+	void	*right_img;
+	void	*bottom_img;
+	void	*left_img;
 	void	*collect_img;
 	void	*temp;
 	void	*enemy_img;
