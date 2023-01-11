@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 09:20:23 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 09:56:14 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	fill_image_addr(t_long *ptr)
 	ptr->img.enemy_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/enemy.xpm", &(ptr->img.e1), &(ptr->img.e2));
 	ptr->img.ship_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/ship.xpm", &(ptr->img.s1), &(ptr->img.s2));
 	ptr->img.collect_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/col.xpm", &(ptr->img.c1), &(ptr->img.c2));
+	ptr->img.exit_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/exit.xpm", &(ptr->img.x1), &(ptr->img.x2));
 }
 
 void	put_all_images_to_wind(t_long *ptr, char **arr)
@@ -51,12 +52,14 @@ void	put_all_images_to_wind(t_long *ptr, char **arr)
 				mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, (ptr->img.x) * j, (ptr->img.y) * i);
 				if (arr[i][j] == '1')
 					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img, (ptr->img.m) * j, (ptr->img.n) * i);
-				else if (arr[i][j] == 'E')
+				else if (arr[i][j] == 'T')
 					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.enemy_img, (ptr->img.e1) * j, (ptr->img.e2) * i);
 				else if (arr[i][j] == 'P')
 					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img, (ptr->img.s1) * j, (ptr->img.s2) * i);
 				else if (arr[i][j] == 'C')
 					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.collect_img, (ptr->img.c1) * j, (ptr->img.c2) * i);
+				else if (arr[i][j] == 'E')
+					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.exit_img, (ptr->img.x1) * j, (ptr->img.x2) * i);
 				j++;
 			}
 			i++;
