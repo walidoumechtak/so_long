@@ -6,27 +6,77 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 09:56:14 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 15:28:52 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+
+
+// ^ : 126, > : 124, down : 125, < : 123
+void	get_cord_palyer(char **arr, t_long *ptr)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (arr[i])
+	{
+		j = 0;
+		while (arr[i][j])
+		{
+			if (arr[i][j] == 'P')
+			{
+				ptr->p.y = j;
+				ptr->p.z = i;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+// ================================================================================================
+
 int	hand_event(int key, t_long *ptr)
 {
+	int	y;
+	int	y2;
+	
+	i = 1;
 	if (key == 53)
 	{
 		mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
 		exit (0);
 	}
+	else if (key == 126)
+	{
+		y2 = ptr->img.s2 * ptr->p.z;
+		y = y2 - 60;
+		ptr->img.s2 = y2;
+		printf("\n%d\n", y2);
+		printf("\n%d\n", y);
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img, ptr->img.s1, y);
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1, y2);
+		ft_printf("www");
+		ptr->img.s2 = y;
+		ptr->p.z = 1;
+	}
+	
 	return (0);	
 }
+
+// ================================================================================================
 
 int	ft_exit(t_long *ptr)
 {
 	mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
 	exit (0);
 }
+
+// ================================================================================================
 
 void	fill_image_addr(t_long *ptr)
 {
@@ -37,6 +87,8 @@ void	fill_image_addr(t_long *ptr)
 	ptr->img.collect_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/col.xpm", &(ptr->img.c1), &(ptr->img.c2));
 	ptr->img.exit_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/exit.xpm", &(ptr->img.x1), &(ptr->img.x2));
 }
+
+// ================================================================================================
 
 void	put_all_images_to_wind(t_long *ptr, char **arr)
 {
@@ -66,6 +118,8 @@ void	put_all_images_to_wind(t_long *ptr, char **arr)
 		}
 }
 
+// ================================================================================================
+
 int	main(int ac, char **av)
 {
 	t_long *ptr;
@@ -73,7 +127,6 @@ int	main(int ac, char **av)
 	int	j;
 	
 	j = 0;
-	// ================================
 	if (ac == 2)
 	{
 		ptr = malloc(sizeof(t_long));
@@ -102,6 +155,7 @@ int	main(int ac, char **av)
 			return (1);
 		}
 		fill_image_addr(ptr); // fill image address ........................
+		get_cord_palyer(arr, ptr);
 		put_all_images_to_wind(ptr, arr); // put images to window ........................
 		
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
@@ -111,5 +165,4 @@ int	main(int ac, char **av)
 		free(ptr->mlx_ptr);
 		free(ptr);
 	}
-	// =================================
 }

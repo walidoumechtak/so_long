@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 09:53:50 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:36:09 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_image
 	void	*wall_img;
 	void	*ship_img;
 	void	*collect_img;
+	void	*temp;
 	void	*enemy_img;
 	void	*exit_img;
 	int	x;
@@ -43,6 +44,13 @@ typedef struct s_image
 	int	x2;
 }			t_image;
 
+typedef	struct s_player
+{
+	int y;
+	int	z;
+}				t_player;
+
+
 typedef struct s_long
 {
 	void	*mlx_ptr;
@@ -51,6 +59,7 @@ typedef struct s_long
 	int		witdt;
 	int		height;
 	t_image	img;
+	t_player	p;
 }			t_long;
 
 char		*map_to_array(char *map_path);
