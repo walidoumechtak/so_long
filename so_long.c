@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 13:20:04 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/12 15:18:43 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 // ^ : 126, > : 124, down : 125, < : 123
 // ================================================================================================
+
+
 
 int	hand_event(int key, t_long *ptr)
 {
@@ -26,76 +28,88 @@ int	hand_event(int key, t_long *ptr)
 		mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
 		exit (0);
 	}
-	else if (key == 126 && ptr->arr[(ptr->p.z) - 1][ptr->p.y] != '1' && ptr->is_ready_to_exit == 0)
+	else if (key == 126 && ptr->arr[(ptr->p.z) - 1][ptr->p.y] != '1') // ===============
 	{
-		y2 = ptr->img.s2 * ptr->p.z;
-		y = y2 - 60;
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y);
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img, ptr->img.s1 * (ptr->p.y), y);
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y2);
-		ptr->img.s2 = 60;
-		ptr->p.z = y / 60;
-		ptr->p.is_step = 1;
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
-		{
-			ptr->collect_size--;
-			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+		if (ptr->arr[(ptr->p.z) - 1][ptr->p.y] != 'E')
+		{	
+			y2 = ptr->img.s2 * ptr->p.z;
+			y = y2 - 60;
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y);
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img, ptr->img.s1 * (ptr->p.y), y);
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y2);
+			ptr->img.s2 = 60;
+			ptr->p.z = y / 60;
+			ptr->p.is_step = 1;
+			if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+			{
+				ptr->collect_size--;
+				ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+			}
 		}
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
+		else if (ptr->arr[(ptr->p.z - 1)][ptr->p.y] == 'E' && ptr->collect_size == 0)
 			ptr->is_ready_to_exit = 1;
 	}
-	else if (key == 125 && ptr->arr[(ptr->p.z) + 1][ptr->p.y] != '1' && ptr->is_ready_to_exit == 0)
+	else if (key == 125 && ptr->arr[(ptr->p.z) + 1][ptr->p.y] != '1') // ===============
 	{
-		y2 = ptr->img.s2 * ptr->p.z;
-		y = y2 + 60;
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y);
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.bottom_img, ptr->img.s1 * (ptr->p.y), y);
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y2);
-		ptr->img.s2 = 60;
-		ptr->p.z = y / 60;
-		ptr->p.is_step = 1;
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+		if (ptr->arr[(ptr->p.z) + 1][ptr->p.y] != 'E')
 		{
-			ptr->collect_size--;
-			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+			y2 = ptr->img.s2 * ptr->p.z;
+			y = y2 + 60;
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y);
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.bottom_img, ptr->img.s1 * (ptr->p.y), y);
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y2);
+			ptr->img.s2 = 60;
+			ptr->p.z = y / 60;
+			ptr->p.is_step = 1;
+			if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+			{
+				ptr->collect_size--;
+				ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+			}
 		}
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
+		else if (ptr->arr[(ptr->p.z) + 1][ptr->p.y] == 'E' && ptr->collect_size == 0)
+				ptr->is_ready_to_exit = 1;
+	}
+	else if (key == 124 && ptr->arr[(ptr->p.z)][ptr->p.y + 1] != '1') // ===============
+	{
+		if(ptr->arr[(ptr->p.z)][ptr->p.y + 1] != 'E')
+		{
+			y2 = ptr->img.s1 * ptr->p.y;
+			y = y2 + 60;
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y,ptr->img.s2 * (ptr->p.z));
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.right_img, y,ptr->img.s2 * (ptr->p.z));
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y2,ptr->img.s2 * (ptr->p.z));
+			ptr->img.s1 = 60;
+			ptr->p.y = y / 60;
+			ptr->p.is_step = 1;
+			if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+			{
+				ptr->collect_size--;
+				ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+			}
+		}
+		else if (ptr->arr[(ptr->p.z)][ptr->p.y + 1] == 'E' && ptr->collect_size == 0)
 			ptr->is_ready_to_exit = 1;
 	}
-	else if (key == 124 && ptr->arr[(ptr->p.z)][ptr->p.y + 1] != '1' && ptr->is_ready_to_exit == 0)
+	else if (key == 123 && ptr->arr[(ptr->p.z)][ptr->p.y - 1] != '1') // ===============
 	{
-		y2 = ptr->img.s1 * ptr->p.y;
-		y = y2 + 60;
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y,ptr->img.s2 * (ptr->p.z));
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.right_img, y,ptr->img.s2 * (ptr->p.z));
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y2,ptr->img.s2 * (ptr->p.z));
-		ptr->img.s1 = 60;
-		ptr->p.y = y / 60;
-		ptr->p.is_step = 1;
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+		if (ptr->arr[(ptr->p.z)][ptr->p.y - 1] != 'E')
 		{
-			ptr->collect_size--;
-			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+			y2 = ptr->img.s1 * ptr->p.y;
+			y = y2 - 60;
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y,ptr->img.s2 * (ptr->p.z));
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.left_img, y,ptr->img.s2 * (ptr->p.z));
+			mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y2,ptr->img.s2 * (ptr->p.z));
+			ptr->img.s1 = 60;
+			ptr->p.y = y / 60;
+			ptr->p.is_step = 1;
+			if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+			{
+				ptr->collect_size--;
+				ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+			}
 		}
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
-			ptr->is_ready_to_exit = 1;
-	}
-	else if (key == 123 && ptr->arr[(ptr->p.z)][ptr->p.y - 1] != '1')
-	{
-		y2 = ptr->img.s1 * ptr->p.y;
-		y = y2 - 60;
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y,ptr->img.s2 * (ptr->p.z));
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.left_img, y,ptr->img.s2 * (ptr->p.z));
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y2,ptr->img.s2 * (ptr->p.z));
-		ptr->img.s1 = 60;
-		ptr->p.y = y / 60;
-		ptr->p.is_step = 1;
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
-		{
-			ptr->collect_size--;
-			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
-		}
-		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
+		else if (ptr->arr[(ptr->p.z)][ptr->p.y - 1] == 'E' && ptr->collect_size == 0)
 			ptr->is_ready_to_exit = 1;
 	}
 	if (ptr->p.is_step == 1)
@@ -103,14 +117,15 @@ int	hand_event(int key, t_long *ptr)
 		(ptr->p.steps)++;
 		ft_printf("step : %d\n", ptr->p.steps);
 	}
-	ft_printf("C : %d\n", ptr->collect_size);
 	if (ptr->is_ready_to_exit == 1 )
 	{
-		free(ptr);
+		free_mlx_res(ptr);
 		exit (0);
 	}
-	return (0);	
+	return (0);
 }
+
+
 
 // ================================================================================================
 
@@ -139,6 +154,7 @@ int	main(int ac, char **av)
 		ptr->height = j * 60;
 		ptr->p.steps = 0;
 		ptr->is_ready_to_exit = 0;
+		ptr->is_near_exit = 0;
 		ptr->collect_size = collect_size(ptr);
 		if (is_5_comp(ptr->string) == 0 || is_ECP_exist(ptr->string) == 0
 		|| is_rectangular(ptr->string) == 0 || is_closed_by_walls(ptr->string) == 0)

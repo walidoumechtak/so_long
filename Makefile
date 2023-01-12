@@ -15,6 +15,7 @@ OBJ=so_long.o \
 	helped_functions/collect_size.o \
 	helped_functions/get_cord_player.o \
 	helped_functions/fill_image_addr.o \
+	helped_functions/free_mlx_res.o \
 
 all:$(NAME)
 
