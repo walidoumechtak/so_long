@@ -11,6 +11,7 @@ OBJ=so_long.o \
 	handle_map/is_ECP_exist.o \
 	handle_map/is_rectangular.o \
 	handle_map/is_closed_by_walls.o \
+	handle_map/is_only_one_ep.o \
 	helped_functions/put_allimg_to_wind.o \
 	helped_functions/collect_size.o \
 	helped_functions/get_cord_player.o \
