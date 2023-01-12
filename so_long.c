@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 06:51:10 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/12 09:38:34 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,29 +52,43 @@ int	hand_event(int key, t_long *ptr)
 	}
 	else if (key == 126)
 	{
-		ft_printf("z : %d \n", ptr->p.z);
 		y2 = ptr->img.s2 * ptr->p.z;
-		ft_printf("y2 : %d \n", y2);
 		y = y2 - 60;
-		// ptr->img.s2 = y2;
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y);
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img, ptr->img.s1 * (ptr->p.y), y);
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y2);
 		ptr->img.s2 = 60;
-		ft_printf("y2 : %d \n", ptr->img.s2);
 		ptr->p.z = y / 60;
 	}
 	else if (key == 125)
 	{
-		ft_printf("-- %d -- \n", ptr->p.z);
 		y2 = ptr->img.s2 * ptr->p.z;
 		y = y2 + 60;
-		ptr->img.s2 = y2;
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y);
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.bottom_img, ptr->img.s1 * (ptr->p.y), y);
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y2);
 		ptr->img.s2 = 60;
 		ptr->p.z = y / 60;
+	}
+	else if (key == 124)
+	{
+		y2 = ptr->img.s1 * ptr->p.y;
+		y = y2 + 60;
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y,ptr->img.s2 * (ptr->p.z));
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.right_img, y,ptr->img.s2 * (ptr->p.z));
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y2,ptr->img.s2 * (ptr->p.z));
+		ptr->img.s1 = 60;
+		ptr->p.y = y / 60;
+	}
+	else if (key == 123)
+	{
+		y2 = ptr->img.s1 * ptr->p.y;
+		y = y2 - 60;
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y,ptr->img.s2 * (ptr->p.z));
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.left_img, y,ptr->img.s2 * (ptr->p.z));
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, y2,ptr->img.s2 * (ptr->p.z));
+		ptr->img.s1 = 60;
+		ptr->p.y = y / 60;
 	}
 	
 	return (0);	
