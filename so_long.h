@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 11:10:43 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:13:46 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,28 @@ typedef struct s_long
 	char	*string;
 	int		witdt;
 	int		height;
+	int	collect_size;
+	int	is_ready_to_exit;
 	t_image	img;
 	t_player	p;
 }			t_long;
 
 char		*map_to_array(char *map_path);
 
-// ======== Errors funs =========
+// ======== Errors funs ========
 
 int			is_5_comp(char *string);
 int			is_ECP_exist(char *str);
 int			is_rectangular(char *str);
 int			is_closed_by_walls(char *str);
+
+// ======== helped funs ========
+
+void	put_all_images_to_wind(t_long *ptr);
+int	collect_size(t_long	*ptr);
+void	get_cord_palyer(t_long *ptr);
+void	fill_image_addr(t_long *ptr);
+int	ft_exit(t_long *ptr);
 
 #endif
 

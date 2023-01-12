@@ -11,6 +11,10 @@ OBJ=so_long.o \
 	handle_map/is_ECP_exist.o \
 	handle_map/is_rectangular.o \
 	handle_map/is_closed_by_walls.o \
+	helped_functions/put_allimg_to_wind.o \
+	helped_functions/collect_size.o \
+	helped_functions/get_cord_player.o \
+	helped_functions/fill_image_addr.o \
 
 all:$(NAME)
 

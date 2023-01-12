@@ -6,38 +6,13 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 11:14:21 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/12 13:20:04 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-
 // ^ : 126, > : 124, down : 125, < : 123
-void	get_cord_palyer(char **arr, t_long *ptr)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (arr[i])
-	{
-		j = 0;
-		while (arr[i][j])
-		{
-			if (arr[i][j] == 'P')
-			{
-				ptr->p.y = j;
-				ptr->p.z = i;
-				return ;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
 // ================================================================================================
 
 int	hand_event(int key, t_long *ptr)
@@ -51,7 +26,7 @@ int	hand_event(int key, t_long *ptr)
 		mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
 		exit (0);
 	}
-	else if (key == 126 && ptr->arr[(ptr->p.z) - 1][ptr->p.y] != '1')
+	else if (key == 126 && ptr->arr[(ptr->p.z) - 1][ptr->p.y] != '1' && ptr->is_ready_to_exit == 0)
 	{
 		y2 = ptr->img.s2 * ptr->p.z;
 		y = y2 - 60;
@@ -61,8 +36,15 @@ int	hand_event(int key, t_long *ptr)
 		ptr->img.s2 = 60;
 		ptr->p.z = y / 60;
 		ptr->p.is_step = 1;
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+		{
+			ptr->collect_size--;
+			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+		}
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
+			ptr->is_ready_to_exit = 1;
 	}
-	else if (key == 125 && ptr->arr[(ptr->p.z) + 1][ptr->p.y] != '1')
+	else if (key == 125 && ptr->arr[(ptr->p.z) + 1][ptr->p.y] != '1' && ptr->is_ready_to_exit == 0)
 	{
 		y2 = ptr->img.s2 * ptr->p.z;
 		y = y2 + 60;
@@ -72,8 +54,15 @@ int	hand_event(int key, t_long *ptr)
 		ptr->img.s2 = 60;
 		ptr->p.z = y / 60;
 		ptr->p.is_step = 1;
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+		{
+			ptr->collect_size--;
+			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+		}
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
+			ptr->is_ready_to_exit = 1;
 	}
-	else if (key == 124 && ptr->arr[(ptr->p.z)][ptr->p.y + 1] != '1')
+	else if (key == 124 && ptr->arr[(ptr->p.z)][ptr->p.y + 1] != '1' && ptr->is_ready_to_exit == 0)
 	{
 		y2 = ptr->img.s1 * ptr->p.y;
 		y = y2 + 60;
@@ -83,6 +72,13 @@ int	hand_event(int key, t_long *ptr)
 		ptr->img.s1 = 60;
 		ptr->p.y = y / 60;
 		ptr->p.is_step = 1;
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+		{
+			ptr->collect_size--;
+			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+		}
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
+			ptr->is_ready_to_exit = 1;
 	}
 	else if (key == 123 && ptr->arr[(ptr->p.z)][ptr->p.y - 1] != '1')
 	{
@@ -94,67 +90,31 @@ int	hand_event(int key, t_long *ptr)
 		ptr->img.s1 = 60;
 		ptr->p.y = y / 60;
 		ptr->p.is_step = 1;
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
+		{
+			ptr->collect_size--;
+			ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
+		}
+		if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'E' && ptr->collect_size == 0)
+			ptr->is_ready_to_exit = 1;
 	}
 	if (ptr->p.is_step == 1)
 	{
 		(ptr->p.steps)++;
 		ft_printf("step : %d\n", ptr->p.steps);
 	}
+	ft_printf("C : %d\n", ptr->collect_size);
+	if (ptr->is_ready_to_exit == 1 )
+	{
+		free(ptr);
+		exit (0);
+	}
 	return (0);	
 }
 
 // ================================================================================================
 
-int	ft_exit(t_long *ptr)
-{
-	mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
-	exit (0);
-}
 
-// ================================================================================================
-
-void	fill_image_addr(t_long *ptr)
-{
-	ptr->img.back_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/background.xpm", &(ptr->img.x), &(ptr->img.y));
-	ptr->img.wall_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/wall.xpm", &(ptr->img.m), &(ptr->img.n));
-	ptr->img.enemy_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/enemy.xpm", &(ptr->img.e1), &(ptr->img.e2));
-	ptr->img.ship_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/ship.xpm", &(ptr->img.s1), &(ptr->img.s2));
-	ptr->img.left_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/left.xpm", &(ptr->img.s1), &(ptr->img.s2));
-	ptr->img.bottom_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/bottom.xpm", &(ptr->img.s1), &(ptr->img.s2));
-	ptr->img.right_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/right.xpm", &(ptr->img.s1), &(ptr->img.s2));
-	ptr->img.collect_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/col.xpm", &(ptr->img.c1), &(ptr->img.c2));
-	ptr->img.exit_img = mlx_xpm_file_to_image(ptr->mlx_ptr, "xpm_files/exit.xpm", &(ptr->img.x1), &(ptr->img.x2));
-}
-
-// ================================================================================================
-
-void	put_all_images_to_wind(t_long *ptr)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (ptr->arr[i])
-		{
-			j = 0;
-			while (ptr->arr[i][j])
-			{
-				mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, (ptr->img.x) * j, (ptr->img.y) * i);
-				if (ptr->arr[i][j] == '1')
-					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img, (ptr->img.m) * j, (ptr->img.n) * i);
-				else if (ptr->arr[i][j] == 'T')
-					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.enemy_img, (ptr->img.e1) * j, (ptr->img.e2) * i);
-				else if (ptr->arr[i][j] == 'P')
-					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img, (ptr->img.s1) * j, (ptr->img.s2) * i);
-				else if (ptr->arr[i][j] == 'C')
-					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.collect_img, (ptr->img.c1) * j, (ptr->img.c2) * i);
-				else if (ptr->arr[i][j] == 'E')
-					mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.exit_img, (ptr->img.x1) * j, (ptr->img.x2) * i);
-				j++;
-			}
-			i++;
-		}
-}
 
 // ================================================================================================
 
@@ -178,6 +138,8 @@ int	main(int ac, char **av)
 			j++;
 		ptr->height = j * 60;
 		ptr->p.steps = 0;
+		ptr->is_ready_to_exit = 0;
+		ptr->collect_size = collect_size(ptr);
 		if (is_5_comp(ptr->string) == 0 || is_ECP_exist(ptr->string) == 0
 		|| is_rectangular(ptr->string) == 0 || is_closed_by_walls(ptr->string) == 0)
 		{
@@ -197,7 +159,7 @@ int	main(int ac, char **av)
 		fill_image_addr(ptr); // fill image address ........................
 		
 		put_all_images_to_wind(ptr); // put images to window ........................
-		get_cord_palyer(ptr->arr, ptr);
+		get_cord_palyer(ptr);
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 		mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
 		mlx_loop(ptr->mlx_ptr);
