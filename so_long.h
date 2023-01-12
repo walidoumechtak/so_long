@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/11 15:55:30 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:14:17 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef	struct s_player
 {
 	int y;
 	int	z;
+	int	steps;
 }				t_player;
 
 

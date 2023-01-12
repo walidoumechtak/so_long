@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 09:38:34 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/12 10:17:02 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ int	hand_event(int key, t_long *ptr)
 		ptr->img.s1 = 60;
 		ptr->p.y = y / 60;
 	}
-	
+	(ptr->p.steps)++;
+	ft_printf("step : %d\n", ptr->p.steps);
 	return (0);	
 }
 
@@ -167,6 +168,7 @@ int	main(int ac, char **av)
 		while (arr[j])
 			j++;
 		ptr->height = j * 60;
+		ptr->p.steps = 0;
 		if (is_5_comp(ptr->string) == 0 || is_ECP_exist(ptr->string) == 0
 		|| is_rectangular(ptr->string) == 0 || is_closed_by_walls(ptr->string) == 0)
 		{
@@ -187,7 +189,6 @@ int	main(int ac, char **av)
 		
 		put_all_images_to_wind(ptr, arr); // put images to window ........................
 		get_cord_palyer(arr, ptr);
-		ft_printf("[%d, %d]", ptr->p.y, ptr->p.z);
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 		mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
 		mlx_loop(ptr->mlx_ptr);
