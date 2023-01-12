@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 10:14:17 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/12 11:10:43 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef	struct s_player
 	int y;
 	int	z;
 	int	steps;
+	int	is_step;
 }				t_player;
 
 
@@ -59,6 +60,7 @@ typedef struct s_long
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
+	char	**arr;
 	char	*string;
 	int		witdt;
 	int		height;
