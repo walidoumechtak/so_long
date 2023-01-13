@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 10:29:51 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:59:38 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int	hand_event(int key, t_long *ptr)
 int	main(int ac, char **av)
 {
 	t_long *ptr;
-	
+	int i;
 	
 	if (ac == 2)
 	{
@@ -160,6 +160,7 @@ int	main(int ac, char **av)
 		ptr->mlx_ptr = mlx_init();
 		if (!(ptr->mlx_ptr))
 			return (1);
+	
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height * 60, "so_long");
 		if (!(ptr->mlx_win))
 		{
@@ -167,9 +168,13 @@ int	main(int ac, char **av)
 			return (1);
 		}
 		fill_image_addr(ptr); // fill image address ........................
-		
+		// ptr->flood = 9;
 		put_all_images_to_wind(ptr); // put images to window ........................
 		get_cord_palyer(ptr);
+		flood_fill(ptr, ptr->p);
+		i = 0;
+		while (ptr->arr[i])
+			ft_printf("%s \n", ptr->arr[i++]);
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 		mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
 		mlx_loop(ptr->mlx_ptr);

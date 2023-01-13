@@ -6,23 +6,26 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:22:20 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 10:51:36 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:00:09 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void  flood_fill(t_long *ptr, char **arr, t_long start)
+void  flood_fill(t_long *ptr, t_player start)
 {
-    
-    if (ptr->p.y < 0 || ptr->p.y > ptr->width || ptr->p.z < 0 || ptr->p.z > ptr->height 
-    || arr[ptr->p.z][ptr->p.y] == 'F' || arr[ptr->p.z][ptr->p.y] != '1')
+    // if (ptr->flood == 9)
+    // {
+    //     ptr->arr[ptr->p.z][ptr->p.y] = 'W';
+    //     ptr->flood = 1;
+    // }
+    if ((ptr->p.y < 0 || ptr->p.y > ptr->width || ptr->p.z < 0 || ptr->p.z > ptr->height 
+    || ptr->arr[ptr->p.z][ptr->p.y] == 'W' || ptr->arr[ptr->p.z][ptr->p.y] != '0'))
         return ;
+    ptr->arr[start.z][start.y] = 'W';
 
-    arr[start.y][start.x] = 'F';
-
-    flood_fill(arr, (t_long){ptr->p.y-1, ptr->p.z});
-    flood_fill(arr, (t_long){ptr->p.y+1, ptr->p.z});
-    flood_fill(arr, (t_long){ptr->p.y, ptr->p.z-1});
-    flood_fill(arr, (t_long){ptr->p.y, ptr->p.z+1});
+    flood_fill(ptr, (t_player){start.y-1, start.z, start.steps, start.is_step});
+    flood_fill(ptr, (t_player){start.y+1, start.z, start.steps, start.is_step});
+    flood_fill(ptr, (t_player){start.y, start.z-1, start.steps, start.is_step});
+    flood_fill(ptr, (t_player){start.y, start.z+1, start.steps, start.is_step});
 }

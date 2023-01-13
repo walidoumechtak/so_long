@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 10:45:19 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/13 14:44:54 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_long
 	int			e_count;
 	int			p_count;
 	int			c_count;
+	int	flood;
 	t_image		img;
 	t_player	p;
 }				t_long;
@@ -91,6 +92,6 @@ void			get_cord_palyer(t_long *ptr);
 void			fill_image_addr(t_long *ptr);
 int				ft_exit(t_long *ptr);
 void			free_mlx_res(t_long *ptr);
-void			flood_fill(char **arr, t_long start);
+void			flood_fill(t_long *ptr, t_player start);
 
 #endif
