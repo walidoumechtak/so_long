@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 14:59:38 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:01:41 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ int	main(int ac, char **av)
 		if (ptr->string == NULL)
 			return (1);
 		ptr->arr = ft_split(ptr->string, '\n');
+		ptr->flood_arr = ft_split(ptr->string, '\n');
 		ptr->width = ft_strlen(ptr->arr[0]);
 		while (ptr->arr[ptr->height])
 			ptr->height++;
@@ -168,13 +169,13 @@ int	main(int ac, char **av)
 			return (1);
 		}
 		fill_image_addr(ptr); // fill image address ........................
-		// ptr->flood = 9;
+		ptr->flood = 9;
 		put_all_images_to_wind(ptr); // put images to window ........................
 		get_cord_palyer(ptr);
 		flood_fill(ptr, ptr->p);
 		i = 0;
-		while (ptr->arr[i])
-			ft_printf("%s \n", ptr->arr[i++]);
+		while (ptr->flood_arr[i])
+			ft_printf("-- %s -- \n", ptr->flood_arr[i++]);
 		mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 		mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
 		mlx_loop(ptr->mlx_ptr);

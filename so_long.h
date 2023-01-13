@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 14:44:54 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:14:15 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_long
 	void		*mlx_ptr;
 	void		*mlx_win;
 	char		**arr;
+	char	**flood_arr;
 	char		*string;
 	int			width;
 	int			height;
