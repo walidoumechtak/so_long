@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 10:26:29 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:29:51 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int	main(int ac, char **av)
 		if (ptr->string == NULL)
 			return (1);
 		ptr->arr = ft_split(ptr->string, '\n');
-		ptr->witdt = ft_strlen(ptr->arr[0]);
+		ptr->width = ft_strlen(ptr->arr[0]);
 		while (ptr->arr[ptr->height])
 			ptr->height++;
 		ptr->p.steps = 0;
@@ -160,7 +160,7 @@ int	main(int ac, char **av)
 		ptr->mlx_ptr = mlx_init();
 		if (!(ptr->mlx_ptr))
 			return (1);
-		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->witdt * 60, ptr->height * 60, "so_long");
+		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height * 60, "so_long");
 		if (!(ptr->mlx_win))
 		{
 			free(ptr->mlx_win);
