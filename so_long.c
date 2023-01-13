@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 08:50:08 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/13 10:26:29 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,22 +130,21 @@ int	hand_event(int key, t_long *ptr)
 int	main(int ac, char **av)
 {
 	t_long *ptr;
-	int	j;
 	
-	j = 0;
+	
 	if (ac == 2)
 	{
 		ptr = malloc(sizeof(t_long));
 		if (!ptr)
 			return (1);
+		ptr->height = 0;
 		ptr->string = map_to_array(av[1]);
 		if (ptr->string == NULL)
 			return (1);
 		ptr->arr = ft_split(ptr->string, '\n');
-		ptr->witdt = ft_strlen(ptr->arr[0]) * 60;
-		while (ptr->arr[j])
-			j++;
-		ptr->height = j * 60;
+		ptr->witdt = ft_strlen(ptr->arr[0]);
+		while (ptr->arr[ptr->height])
+			ptr->height++;
 		ptr->p.steps = 0;
 		ptr->is_ready_to_exit = 0;
 		ptr->is_near_exit = 0;
@@ -161,7 +160,7 @@ int	main(int ac, char **av)
 		ptr->mlx_ptr = mlx_init();
 		if (!(ptr->mlx_ptr))
 			return (1);
-		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->witdt, ptr->height, "so_long");
+		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->witdt * 60, ptr->height * 60, "so_long");
 		if (!(ptr->mlx_win))
 		{
 			free(ptr->mlx_win);
