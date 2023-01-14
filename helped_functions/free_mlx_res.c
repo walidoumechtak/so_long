@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:18:25 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 15:18:47 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:56:49 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	free_mlx_res(t_long *ptr)
 		mlx_destroy_image(ptr->mlx_ptr, ptr->img.exit_img);
 		mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
 		free(ptr);
+		exit (0);
 }
