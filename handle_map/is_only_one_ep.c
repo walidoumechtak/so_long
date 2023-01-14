@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:20:56 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 08:58:53 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 13:13:49 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_only_one_p_e(t_long *ptr)
 {
 	int i;
 	int j;
-	
+
 	i = 0;
 	ptr->e_count = 0;
 	ptr->p_count = 0;
