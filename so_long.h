@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 11:53:41 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:06:46 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,14 @@ void			flood_fill(t_long *ptr, t_player start);
 int				check_path(t_long *ptr);
 int				is_there_newline(t_long *ptr);
 
+// ======== handle norm ========
+
+void			init_struct_var(t_long *ptr, char **av);
+void			map_errors(t_long *ptr);
+void			path_flood_fil(t_long *ptr);
+void			hooks_and_free(t_long *ptr);
+
+
+
+int	hand_event(int key, t_long *ptr);
 #endif

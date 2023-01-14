@@ -20,6 +20,10 @@ OBJ=so_long.o \
 	helped_functions/free_mlx_res.o \
 	helped_functions/flood_fil.o \
 	helped_functions/check_path.o \
+	handle_norm/init_struct_var.o \
+	handle_norm/map_errors.o \
+	handle_norm/path_flood_fil.o \
+	handle_norm/hooks_and_free.o \
 
 all:$(NAME)
 
