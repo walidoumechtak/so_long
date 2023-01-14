@@ -19,6 +19,7 @@ OBJ=so_long.o \
 	helped_functions/free_mlx_res.o \
 	helped_functions/flood_fil.o \
 	helped_functions/check_path.o \
+	helped_functions/is_there_newline.o \
 
 all:$(NAME)
 

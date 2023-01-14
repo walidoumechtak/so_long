@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 10:10:23 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 11:53:41 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,6 @@ typedef struct s_player
 	int			is_step;
 }				t_player;
 
-typedef struct s_flood
-{
-	int			y1;
-	int			z2;
-}				t_flood;
-
 typedef struct s_long
 {
 	void		*mlx_ptr;
@@ -79,7 +73,6 @@ typedef struct s_long
 	int			flood;
 	t_image		img;
 	t_player	p;
-	t_flood		*f;
 }				t_long;
 
 char			*map_to_array(char *map_path);
@@ -102,5 +95,6 @@ int				ft_exit(t_long *ptr);
 void			free_mlx_res(t_long *ptr);
 void			flood_fill(t_long *ptr, t_player start);
 int				check_path(t_long *ptr);
+int				is_there_newline(t_long *ptr);
 
 #endif
