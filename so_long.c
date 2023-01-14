@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/13 16:01:41 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 10:15:19 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ int	main(int ac, char **av)
 		ptr = malloc(sizeof(t_long));
 		if (!ptr)
 			return (1);
+		ptr->f = malloc(sizeof(t_flood));
 		ptr->height = 0;
 		ptr->string = map_to_array(av[1]);
 		if (ptr->string == NULL)
@@ -173,6 +174,12 @@ int	main(int ac, char **av)
 		put_all_images_to_wind(ptr); // put images to window ........................
 		get_cord_palyer(ptr);
 		flood_fill(ptr, ptr->p);
+		if (check_path(ptr) == 0)
+		{
+			free(ptr);
+			ft_printf("invalid path\n");
+			exit (0);
+		}
 		i = 0;
 		while (ptr->flood_arr[i])
 			ft_printf("-- %s -- \n", ptr->flood_arr[i++]);

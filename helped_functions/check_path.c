@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_cord_player.c                                  :+:      :+:    :+:   */
+/*   check_path.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 12:26:13 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 08:49:19 by woumecht         ###   ########.fr       */
+/*   Created: 2023/01/14 10:08:17 by woumecht          #+#    #+#             */
+/*   Updated: 2023/01/14 10:14:21 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	get_cord_palyer(t_long *ptr)
+int	check_path(t_long *ptr)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
+	int count_c;
+	int count_e;
 
 	i = 0;
-	while (ptr->arr[i])
+	while (ptr->flood_arr[i])
 	{
 		j = 0;
-		while (ptr->arr[i][j])
+		while (ptr->flood_arr[i][j])
 		{
-			if (ptr->arr[i][j] == 'P')
-			{
-				ptr->p.y = j;
-				ptr->p.z = i;
-				ptr->f->y1 = j;
-				ptr->f->z2 = i;
-				return ;
-			}
+			if (ptr->flood_arr[i][j] == 'E')
+				count_e++;
+			else if (ptr->flood_arr[i][j] == 'C')
+				count_c++;
 			j++;
 		}
 		i++;
 	}
+	if (count_e > 0 || count_c > 0)
+		return (0);
+	return (1);
 }
