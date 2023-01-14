@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 17:54:49 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:00:33 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,24 +78,6 @@ int	hand_event(int key, t_long *ptr)
 	{
 		top_and_down(ptr, 125, y, y2);
 		ptr->img.s2 = 60; // retunr to the real image size because we multiplay be the cord of the palyer
-		// if (ptr->arr[(ptr->p.z) + 1][ptr->p.y] != 'E')
-		// {
-		// 	y2 = ptr->img.s2 * ptr->p.z;
-		// 	y = y2 + 60;
-		// 	mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y);
-		// 	mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.bottom_img, ptr->img.s1 * (ptr->p.y), y);
-		// 	mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.back_img, ptr->img.s1 * (ptr->p.y), y2);
-		// 	ptr->img.s2 = 60;
-		// 	ptr->p.z = y / 60;
-		// 	ptr->p.is_step = 1;
-		// 	if (ptr->arr[(ptr->p.z)][ptr->p.y] == 'C')
-		// 	{
-		// 		ptr->collect_size--;
-		// 		ptr->arr[(ptr->p.z)][ptr->p.y] = '0';
-		// 	}
-		// }
-		// else if (ptr->arr[(ptr->p.z) + 1][ptr->p.y] == 'E' && ptr->collect_size == 0)
-		// 		ptr->is_ready_to_exit = 1;
 	}
 	else if (key == 124 && ptr->arr[(ptr->p.z)][ptr->p.y + 1] != '1') // ===============
 	{
