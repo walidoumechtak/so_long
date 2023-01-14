@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 15:06:46 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:25:54 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_long
 	int			p_count;
 	int			c_count;
 	int			flood;
+	int			boll1;
+	int			boll2;
 	t_image		img;
 	t_player	p;
 }				t_long;

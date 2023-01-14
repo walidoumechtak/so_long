@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:55:47 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 14:56:26 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:33:26 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	init_struct_var(t_long *ptr, char **av)
 {
+	ptr->boll1 = 0;
+	ptr->boll2 = 0;
 	ptr->height = 0;
 	ptr->string = map_to_array(av[1]);
 	if (ptr->string == NULL)
