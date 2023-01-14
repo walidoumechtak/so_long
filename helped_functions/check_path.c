@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:08:17 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 10:14:21 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 11:22:38 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	check_path(t_long *ptr)
 	int count_e;
 
 	i = 0;
+	count_c = 0;
+	count_e = 0;
 	while (ptr->flood_arr[i])
 	{
 		j = 0;

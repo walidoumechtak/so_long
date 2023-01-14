@@ -18,6 +18,7 @@ OBJ=so_long.o \
 	helped_functions/fill_image_addr.o \
 	helped_functions/free_mlx_res.o \
 	helped_functions/flood_fil.o \
+	helped_functions/check_path.o \
 
 all:$(NAME)
 
