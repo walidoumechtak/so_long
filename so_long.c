@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 12:45:53 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 12:49:38 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ int	main(int ac, char **av)
 			return (1);
 		ptr->height = 0;
 		ptr->string = map_to_array(av[1]);
+		ft_printf("**%s**\n", ptr->string);
 		if (ptr->string == NULL)
 			return (1);
 		ptr->arr = ft_split(ptr->string, '\n');

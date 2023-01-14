@@ -12,6 +12,7 @@ OBJ=so_long.o \
 	handle_map/is_rectangular.o \
 	handle_map/is_closed_by_walls.o \
 	handle_map/is_only_one_ep.o \
+	handle_map/is_there_newline.o \
 	helped_functions/put_allimg_to_wind.o \
 	helped_functions/collect_size.o \
 	helped_functions/get_cord_player.o \
@@ -19,7 +20,6 @@ OBJ=so_long.o \
 	helped_functions/free_mlx_res.o \
 	helped_functions/flood_fil.o \
 	helped_functions/check_path.o \
-	helped_functions/is_there_newline.o \
 
 all:$(NAME)
 
