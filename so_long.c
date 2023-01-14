@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 17:51:22 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:54:49 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,6 @@ int	hand_event(int key, t_long *ptr)
 int	main(int ac, char **av)
 {
 	t_long *ptr;
-	
 	if (ac == 2)
 	{
 		ptr = malloc(sizeof(t_long));
@@ -176,6 +175,7 @@ int	main(int ac, char **av)
 		fill_image_addr(ptr);
 		put_all_images_to_wind(ptr);
 		get_cord_palyer(ptr);
+		
 		path_flood_fil(ptr);
 		hooks_and_free(ptr);
 		// while (1);	
