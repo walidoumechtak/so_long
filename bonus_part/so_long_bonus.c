@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 10:18:05 by woumecht         ###   ########.fr       */
+/*   Created: 2023/01/15 09:40:52 by woumecht          #+#    #+#             */
+/*   Updated: 2023/01/15 11:17:18 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void	ready_exit(t_long *ptr)
 {
@@ -42,6 +42,8 @@ int	hand_event(int key, t_long *ptr)
 	{
 		(ptr->p.steps)++;
 		ft_printf("step : %d\n", ptr->p.steps);
+        mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img, 0, 0);
+        mlx_string_put(ptr->mlx_ptr, ptr->mlx_win, 25, 20, 0xFFFFFF, ft_itoa(ptr->p.steps));
 	}
 	ready_exit(ptr);
 	return (0);
@@ -62,7 +64,7 @@ int	main(int ac, char **av)
 		init_struct_var(ptr, av);
 		map_errors(ptr);
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
-				* 60, "so_long");
+				* 60, "The galaxy");
 		if (!(ptr->mlx_win))
 		{
 			free_mlx_res(ptr);
