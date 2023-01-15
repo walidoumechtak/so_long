@@ -31,7 +31,8 @@ OBJ=so_long.o \
 all:$(NAME)
 
 $(NAME):$(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a libft/libft.a -L /local/lib/includes -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	# $(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

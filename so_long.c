@@ -6,18 +6,15 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:23:33 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:51:52 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// ^ : 126, > : 124, down : 125, < : 123
-// ================================================================================================
-
 void	ready_exit(t_long *ptr)
 {
-	if (ptr->is_ready_to_exit == 1 )
+	if (ptr->is_ready_to_exit == 1)
 	{
 		free_mlx_res(ptr);
 	}
@@ -27,7 +24,7 @@ int	hand_event(int key, t_long *ptr)
 {
 	int	y;
 	int	y2;
-	
+
 	ptr->p.is_step = 0;
 	y = 0;
 	y2 = 0;
@@ -50,21 +47,22 @@ int	hand_event(int key, t_long *ptr)
 	return (0);
 }
 
-// ================================================================================================
 int	main(int ac, char **av)
 {
-	t_long *ptr;
+	t_long	*ptr;
+
 	if (ac == 2)
 	{
 		ptr = malloc(sizeof(t_long));
 		if (!ptr)
-			exit (0);
+			exit(0);
 		ptr->mlx_ptr = mlx_init();
 		if (!(ptr->mlx_ptr))
 			free_mlx_res(ptr);
 		init_struct_var(ptr, av);
 		map_errors(ptr);
-		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height * 60, "so_long");
+		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
+				* 60, "so_long");
 		if (!(ptr->mlx_win))
 		{
 			free_mlx_res(ptr);
@@ -75,11 +73,5 @@ int	main(int ac, char **av)
 		get_cord_palyer(ptr);
 		path_flood_fil(ptr);
 		hooks_and_free(ptr);
-		free_all_ele(ptr);
-		free(ptr->arr);
-		free(ptr->flood_arr);
-		free(ptr->mlx_ptr);
-		free(ptr);	
 	}
-	// while (1);	
 }

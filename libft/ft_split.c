@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:01:22 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/09 20:28:05 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 09:21:24 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-int main()
+int	main(void)
 {
-	char *s;
-	char **str;
+	char	*s;
+	char	**str;
 
 	s = "walid and med";
 	str = ft_split(s, ' ');

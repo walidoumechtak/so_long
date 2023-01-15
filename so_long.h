@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:33:29 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 09:21:57 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void			free_mlx_res(t_long *ptr);
 void			flood_fill(t_long *ptr, t_player start);
 int				check_path(t_long *ptr);
 int				is_there_newline(t_long *ptr);
-void    free_all_ele(t_long *ptr);
+void			free_all_ele(t_long *ptr);
 
 // ======== handle norm ========
 
