@@ -33,7 +33,7 @@ OBJS=bonus_part/so_long_bonus.o \
 	read_map.o \
 	get_next_line/get_next_line.o \
 	get_next_line/get_next_line_utils.o \
-	handle_map/is_5_comp.o \
+	handle_map/is_5_comp_bonus.o \
 	handle_map/is_ECP_exist.o \
 	handle_map/is_rectangular.o \
 	handle_map/is_closed_by_walls.o \

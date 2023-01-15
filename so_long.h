@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 09:21:57 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:20:59 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int				is_ecp_exist(char *str);
 int				is_rectangular(char *str);
 int				is_closed_by_walls(char *str);
 int				is_only_one_p_e(t_long *ptr);
+int				is_5_comp_bonus(char *string);
 
 // ======== helped funs ========
 
