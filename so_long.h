@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 11:20:59 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:32:08 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void			free_all_ele(t_long *ptr);
 
 void			init_struct_var(t_long *ptr, char **av);
 void			map_errors(t_long *ptr);
+void			map_errors_bonus(t_long *ptr);
 void			path_flood_fil(t_long *ptr);
 void			hooks_and_free(t_long *ptr);
 void			top_and_down(t_long *ptr, int dirction, int y, int y2);

@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_5_comp_bonus.c                                  :+:      :+:    :+:   */
+/*   map_errors_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/09 13:14:32 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 12:29:53 by woumecht         ###   ########.fr       */
+/*   Created: 2023/01/14 14:58:15 by woumecht          #+#    #+#             */
+/*   Updated: 2023/01/15 11:32:17 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	is_5_bonus(char c)
+void	map_errors_bonus(t_long *ptr)
 {
-	if ((c == '0') || c == '1' || c == 'C' || c == 'E' || c == 'P' || c == '\n'
-		|| c == 'T')
-		return (1);
-	return (0);
-}
-
-int	is_5_comp_bonus(char *string)
-{
-	int	i;
-
-	i = 0;
-	while (string[i])
+	if (is_5_comp_bonus(ptr->string) == 0 || is_ecp_exist(ptr->string) == 0
+		|| is_only_one_p_e(ptr) == 0 || is_rectangular(ptr->string) == 0
+		|| is_closed_by_walls(ptr->string) == 0 || is_there_newline(ptr) == 0)
 	{
-		if (is_5_bonus(string[i]) == 0)
-			return (0);
-		i++;
+		ft_printf("\033[1;31mError : Invalid map\033[0m\n");
+		free_mlx_res(ptr);
 	}
-	return (1);
 }
+
+/*
+ft_printf("Error : Invalid map\n");
+*/

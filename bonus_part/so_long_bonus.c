@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 09:40:52 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 11:27:16 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 11:32:28 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,7 @@ int	main(int ac, char **av)
 		if (!(ptr->mlx_ptr))
 			free_mlx_res(ptr);
 		init_struct_var(ptr, av);
-		if (is_5_comp_bonus(ptr->string) == 0)
-			free_mlx_res(ptr);
-		map_errors(ptr);
+		map_errors_bonus(ptr);
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
 				* 60, "The galaxy");
 		if (!(ptr->mlx_win))

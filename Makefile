@@ -48,7 +48,7 @@ OBJS=bonus_part/so_long_bonus.o \
 	helped_functions/check_path.o \
 	helped_functions/free_splited_elements.o \
 	handle_norm/init_struct_var.o \
-	handle_norm/map_errors.o \
+	handle_norm/map_errors_bonus.o \
 	handle_norm/path_flood_fil.o \
 	handle_norm/hooks_and_free.o \
 	handle_norm/top_down_event.o \
@@ -67,7 +67,7 @@ clean:
 	rm -f $(OBJ) $(OBJS)
 
 fclean:
-	rm -f $(NAME) $(OBJ) $(OBJS)
+	rm -f $(NAME) $(NAMEB) $(OBJ) $(OBJS)
 
 re:fclean all
 
