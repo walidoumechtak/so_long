@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:28:06 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 13:16:54 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 07:04:07 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	free_exit(t_long *ptr, void *img)
 {
 	if (img == NULL)
 	{
-		free(ptr);
-		exit(0);
+		free_mlx_res(ptr);
 	}
 }
 

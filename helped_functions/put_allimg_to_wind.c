@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:44:50 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 12:31:39 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 06:49:30 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_exit(t_long *ptr)
 {
-	mlx_destroy_window(ptr->mlx_ptr, ptr->mlx_win);
-	exit (0);
+	free_mlx_res(ptr);
+	return (0);
 }
 
 void	put_all_images_to_wind(t_long *ptr)

@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 16:25:54 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 06:47:51 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void			free_mlx_res(t_long *ptr);
 void			flood_fill(t_long *ptr, t_player start);
 int				check_path(t_long *ptr);
 int				is_there_newline(t_long *ptr);
+void    free_all_ele(t_long *ptr);
 
 // ======== handle norm ========
 
@@ -105,8 +106,8 @@ void			init_struct_var(t_long *ptr, char **av);
 void			map_errors(t_long *ptr);
 void			path_flood_fil(t_long *ptr);
 void			hooks_and_free(t_long *ptr);
+void			top_and_down(t_long *ptr, int dirction, int y, int y2);
+void			right_and_left(t_long *ptr, int dirction, int y, int y2);
 
-
-
-int	hand_event(int key, t_long *ptr);
+int				hand_event(int key, t_long *ptr);
 #endif

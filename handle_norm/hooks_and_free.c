@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:00:17 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 15:03:15 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:21:16 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,5 @@ void	hooks_and_free(t_long *ptr)
 	mlx_hook(ptr->mlx_win, 2, 0, hand_event, ptr);
 	mlx_hook(ptr->mlx_win, 17, 0, ft_exit, ptr);
 	mlx_loop(ptr->mlx_ptr);
-	free(ptr->mlx_ptr);
-	free(ptr);
+	
 }
