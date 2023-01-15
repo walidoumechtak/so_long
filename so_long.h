@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 06:47:51 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:33:29 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char			*map_to_array(char *map_path);
 // ======== Errors funs ========
 
 int				is_5_comp(char *string);
-int				is_ECP_exist(char *str);
+int				is_ecp_exist(char *str);
 int				is_rectangular(char *str);
 int				is_closed_by_walls(char *str);
 int				is_only_one_p_e(t_long *ptr);

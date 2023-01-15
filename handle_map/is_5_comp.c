@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 13:14:32 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/09 16:20:35 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:32:52 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_5(char c)
 
 int	is_5_comp(char *string)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (string[i])

@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 11:43:35 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/14 13:13:31 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:32:29 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_there_newline(t_long *ptr)
 {
-	size_t i;
+	size_t	i;
 
 	if (ptr->string[0] == '\n')
 		return (0);

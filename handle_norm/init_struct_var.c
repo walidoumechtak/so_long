@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:55:47 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:20:33 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:30:53 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	init_struct_var(t_long *ptr, char **av)
 {
+	ptr->e_count = 0;
+	ptr->p_count = 0;
+	ptr->c_count = 0;
 	ptr->boll1 = 0;
 	ptr->boll2 = 0;
 	ptr->height = 0;

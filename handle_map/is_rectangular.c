@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 18:09:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/10 06:04:15 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:32:22 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void	free_s(char **arr)
 		free(arr[i]);
 		i++;
 	}
+	free(s);
 }
-
-
 
 int	is_rectangular(char *str)
 {
@@ -52,6 +51,5 @@ int	is_rectangular(char *str)
 		i++;
 	}
 	free_s(s);
-	free(s);
 	return (1);
 }
