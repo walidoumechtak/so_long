@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:55:47 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:30:53 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:34:40 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_struct_var(t_long *ptr, char **av)
 	ptr->height = 0;
 	ptr->string = map_to_array(av[1]);
 	if (ptr->string == NULL)
-		exit (0);
+		exit(0);
 	ptr->arr = ft_split(ptr->string, '\n');
 	ptr->flood_arr = ft_split(ptr->string, '\n');
 	ptr->width = ft_strlen(ptr->arr[0]);
