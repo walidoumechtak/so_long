@@ -6,13 +6,13 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:22:38 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/12 12:23:42 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:41:20 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	collect_size(t_long	*ptr)
+int	collect_size(t_long *ptr)
 {
 	int	i;
 	int	j;

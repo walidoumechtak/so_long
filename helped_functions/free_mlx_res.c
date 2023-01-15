@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:18:25 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:29:43 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/15 08:42:47 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	free_mlx_res(t_long *ptr)
 {
-		free_all_ele(ptr);
-		free(ptr->arr);
-		free(ptr->string);
-		free(ptr->flood_arr);
-		free(ptr);
-		exit (0);
+	free_all_ele(ptr);
+	free(ptr->arr);
+	free(ptr->string);
+	free(ptr->flood_arr);
+	free(ptr);
+	exit(0);
 }
