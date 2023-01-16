@@ -32,6 +32,7 @@ OBJ=so_long.o \
 
 OBJS=bonus_part/so_long_bonus.o \
 	read_map.o \
+	check_extenstion.o \
 	get_next_line/get_next_line.o \
 	get_next_line/get_next_line_utils.o \
 	handle_map/is_5_comp_bonus.o \

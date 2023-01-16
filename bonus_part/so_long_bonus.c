@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 09:40:52 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 11:18:16 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 12:27:10 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	main(int ac, char **av)
 		init_struct_var(ptr, av);
 		ptr->count = 0;
 		ptr->count2 = 0;
+		if (check_extenstion(av) == 0)
+			free_mlx_res(ptr);
 		map_errors_bonus(ptr);
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
 				* 60, "The galaxy");
