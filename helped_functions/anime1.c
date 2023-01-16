@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 07:04:17 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 10:32:55 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:20:26 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	anime1(t_long *ptr)
 {
-	// anime2(ptr);
 	if (ptr->count == 0)
 	{
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.exit_img,
@@ -22,8 +21,8 @@ int	anime1(t_long *ptr)
 	}
 	else if (ptr->count == 2000)
 	{
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_90,
-			60 * ptr->exit.ex1, 60 * ptr->exit.ex2);
+		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_90, 60
+			* ptr->exit.ex1, 60 * ptr->exit.ex2);
 	}
 	else if (ptr->count == 4000)
 	{
@@ -36,6 +35,6 @@ int	anime1(t_long *ptr)
 			60 * ptr->exit.ex1, 60 * ptr->exit.ex2);
 		ptr->count = -2000;
 	}
-	ptr->count += 1;
+	ptr->count += 2;
 	return (1);
 }

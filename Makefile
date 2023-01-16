@@ -54,7 +54,6 @@ OBJS=bonus_part/so_long_bonus.o \
 	handle_norm/hooks_and_free.o \
 	handle_norm/top_down_event.o \
 	handle_norm/right_left_event.o \
-	helped_functions/anime2.o \
 
 all:$(NAME)
 

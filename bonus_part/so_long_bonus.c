@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 09:40:52 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 09:41:05 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:18:16 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	main(int ac, char **av)
 		get_cord_palyer(ptr);
 		path_flood_fil(ptr);
 		mlx_loop_hook(ptr->mlx_ptr, anime1, ptr);
-		// mlx_loop_hook(ptr->mlx_ptr, anime2, ptr);
 		hooks_and_free(ptr);
 	}
 }
