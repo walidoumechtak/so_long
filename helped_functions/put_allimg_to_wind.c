@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:44:50 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:50:14 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 06:29:09 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ void	put_images(t_long *ptr, int i, int j)
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win,
 			ptr->img.collect_img, (ptr->img.c1) * j, (ptr->img.c2) * i);
 	else if (ptr->arr[i][j] == 'E')
+	{
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.exit_img,
 			(ptr->img.x1) * j, (ptr->img.x2) * i);
+		ptr->exit.ex1 = j;
+		ptr->exit.ex2 = i;
+	}
 }
 
 void	put_all_images_to_wind(t_long *ptr)

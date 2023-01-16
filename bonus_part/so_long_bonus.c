@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 09:40:52 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 11:32:28 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 07:01:44 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ready_exit(t_long *ptr)
 void	mlx_put_string(t_long *ptr)
 {
 	mlx_string_put(ptr->mlx_ptr, ptr->mlx_win, 25, 20, 0xFFFFFF,
-		ft_itoa(ptr->p.steps));
+			ft_itoa(ptr->p.steps));
 }
 
 int	hand_event(int key, t_long *ptr)
@@ -48,7 +48,7 @@ int	hand_event(int key, t_long *ptr)
 	{
 		(ptr->p.steps)++;
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img,
-			0, 0);
+				0, 0);
 		mlx_put_string(ptr);
 	}
 	ready_exit(ptr);
@@ -68,6 +68,7 @@ int	main(int ac, char **av)
 		if (!(ptr->mlx_ptr))
 			free_mlx_res(ptr);
 		init_struct_var(ptr, av);
+		ptr->count = 0;
 		map_errors_bonus(ptr);
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
 				* 60, "The galaxy");
@@ -77,6 +78,7 @@ int	main(int ac, char **av)
 		put_all_images_to_wind(ptr);
 		get_cord_palyer(ptr);
 		path_flood_fil(ptr);
+		mlx_loop_hook(ptr->mlx_ptr, anime, ptr);
 		hooks_and_free(ptr);
 	}
 }

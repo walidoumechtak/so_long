@@ -6,11 +6,13 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:00:17 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 10:01:34 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 07:04:40 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+
 
 void	hooks_and_free(t_long *ptr)
 {
