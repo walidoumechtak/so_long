@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:44:50 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 06:29:09 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:27:38 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ void	put_images(t_long *ptr, int i, int j)
 	if (ptr->arr[i][j] == '1')
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.wall_img,
 			(ptr->img.m) * j, (ptr->img.n) * i);
-	else if (ptr->arr[i][j] == 'T')
-		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.enemy_img,
-			(ptr->img.e1) * j, (ptr->img.e2) * i);
 	else if (ptr->arr[i][j] == 'P')
 		mlx_put_image_to_window(ptr->mlx_ptr, ptr->mlx_win, ptr->img.ship_img,
 			(ptr->img.s1) * j, (ptr->img.s2) * i);
