@@ -6,6 +6,7 @@ NAMEB=so_long_b
 
 OBJ=so_long.o \
 	read_map.o \
+	check_extenstion.o \
 	get_next_line/get_next_line.o \
 	get_next_line/get_next_line_utils.o \
 	handle_map/is_5_comp.o \
