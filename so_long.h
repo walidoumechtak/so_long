@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 06:59:43 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 09:31:23 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct s_image
 	void		*bottom_img;
 	void		*left_img;
 	void		*collect_img;
+	void		*col90_img;
+	void		*col180_img;
+	void		*col270_img;
 	void		*temp;
 	void		*enemy_img;
 	void		*exit_img;
@@ -82,7 +85,8 @@ typedef struct s_long
 	int			flood;
 	int			boll1;
 	int			boll2;
-	int	count;
+	int			count;
+	int			count2;
 	t_image		img;
 	t_player	p;
 	t_exit		exit;
@@ -111,7 +115,8 @@ void			flood_fill(t_long *ptr, t_player start);
 int				check_path(t_long *ptr);
 int				is_there_newline(t_long *ptr);
 void			free_all_ele(t_long *ptr);
-int				anime(t_long *ptr);
+int				anime1(t_long *ptr);
+int				anime2(t_long *ptr);
 
 // ======== handle norm ========
 

@@ -47,13 +47,14 @@ OBJS=bonus_part/so_long_bonus.o \
 	helped_functions/flood_fil.o \
 	helped_functions/check_path.o \
 	helped_functions/free_splited_elements.o \
-	helped_functions/anime.o \
+	helped_functions/anime1.o \
 	handle_norm/init_struct_var.o \
 	handle_norm/map_errors_bonus.o \
 	handle_norm/path_flood_fil.o \
 	handle_norm/hooks_and_free.o \
 	handle_norm/top_down_event.o \
 	handle_norm/right_left_event.o \
+	helped_functions/anime2.o \
 
 all:$(NAME)
 

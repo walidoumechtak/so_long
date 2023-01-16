@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 09:40:52 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 07:01:44 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/16 09:41:05 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int	main(int ac, char **av)
 			free_mlx_res(ptr);
 		init_struct_var(ptr, av);
 		ptr->count = 0;
+		ptr->count2 = 0;
 		map_errors_bonus(ptr);
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
 				* 60, "The galaxy");
@@ -78,7 +79,8 @@ int	main(int ac, char **av)
 		put_all_images_to_wind(ptr);
 		get_cord_palyer(ptr);
 		path_flood_fil(ptr);
-		mlx_loop_hook(ptr->mlx_ptr, anime, ptr);
+		mlx_loop_hook(ptr->mlx_ptr, anime1, ptr);
+		// mlx_loop_hook(ptr->mlx_ptr, anime2, ptr);
 		hooks_and_free(ptr);
 	}
 }
