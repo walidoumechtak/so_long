@@ -61,7 +61,6 @@ all:$(NAME)
 
 $(NAME):$(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a libft/libft.a -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	# $(CC) $(CFLAGS) $(OBJ) ft_printf/libftprintf.a libft/libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 bonus: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) ft_printf/libftprintf.a libft/libft.a -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit -o $(NAMEB)

@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:59:15 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 11:55:45 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:04:36 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ int				is_rectangular(char *str);
 int				is_closed_by_walls(char *str);
 int				is_only_one_p_e(t_long *ptr);
 int				is_5_comp_bonus(char *string);
-int check_extenstion(char **av);
+int				check_extenstion(char **av);
 
 // ======== helped funs ========
 
@@ -121,8 +121,8 @@ int				anime1(t_long *ptr);
 // ======== handle norm ========
 
 void			init_struct_var(t_long *ptr, char **av);
-void			map_errors(t_long *ptr);
-void			map_errors_bonus(t_long *ptr);
+void			map_errors(t_long *ptr, char **av);
+void			map_errors_bonus(t_long *ptr, char **av);
 void			path_flood_fil(t_long *ptr);
 void			hooks_and_free(t_long *ptr);
 void			top_and_down(t_long *ptr, int dirction, int y, int y2);
