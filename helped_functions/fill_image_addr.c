@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 12:28:06 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/16 09:24:11 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:15:44 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,6 @@ void	fill_parttwo(t_long *ptr)
 	free_exit(ptr, ptr->img.ship_270);
 }
 
-void	fill_partthree(t_long *ptr)
-{
-	ptr->img.col90_img = mlx_xpm_file_to_image(ptr->mlx_ptr,
-			"xpm_files/col90.xpm", &(ptr->img.c1), &(ptr->img.c2));
-	free_exit(ptr, ptr->img.col90_img);
-	ptr->img.col180_img = mlx_xpm_file_to_image(ptr->mlx_ptr,
-			"xpm_files/col90.xpm", &(ptr->img.c1), &(ptr->img.c2));
-	free_exit(ptr, ptr->img.col180_img);
-	ptr->img.col270_img = mlx_xpm_file_to_image(ptr->mlx_ptr,
-			"xpm_files/col90.xpm", &(ptr->img.c1), &(ptr->img.c2));
-	free_exit(ptr, ptr->img.col270_img);
-}
-
 void	fill_image_addr(t_long *ptr)
 {
 	ptr->img.back_img = mlx_xpm_file_to_image(ptr->mlx_ptr,
@@ -76,5 +63,4 @@ void	fill_image_addr(t_long *ptr)
 			"xpm_files/left.xpm", &(ptr->img.s1), &(ptr->img.s2));
 	free_exit(ptr, ptr->img.left_img);
 	fill_parttwo(ptr);
-	fill_partthree(ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/17 20:03:05 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:17:15 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char **av)
 			exit(0);
 		ptr->mlx_ptr = mlx_init();
 		if (!(ptr->mlx_ptr))
-			free_mlx_res(ptr);
+			return (1);
 		init_struct_var(ptr, av);
 		map_errors(ptr, av);
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
@@ -73,4 +73,5 @@ int	main(int ac, char **av)
 		path_flood_fil(ptr);
 		hooks_and_free(ptr);
 	}
+	return (0);
 }
