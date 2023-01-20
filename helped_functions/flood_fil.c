@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:22:20 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:47:33 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/20 16:16:48 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	flood_fill(t_long *ptr, t_player start)
 {
 	if ((ptr->flood_arr[start.z][start.y] != '0'
 		&& ptr->flood_arr[start.z][start.y] != 'C'
-		&& ptr->flood_arr[start.z][start.y] != 'E'
 		&& ptr->flood_arr[start.z][start.y] != 'P'))
 		return ;
 	ptr->flood_arr[start.z][start.y] = 'T';

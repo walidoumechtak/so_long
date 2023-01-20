@@ -87,13 +87,3 @@ char	**ft_split(char const *s, char c)
 	split = to_split((char *)s, c, split);
 	return (split);
 }
-
-int	main(void)
-{
-	char	*s;
-	char	**str;
-
-	s = "walid and med";
-	str = ft_split(s, ' ');
-	printf("%s", str[0]);
-}
