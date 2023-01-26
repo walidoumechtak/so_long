@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/17 20:17:15 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:15:20 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ready_exit(t_long *ptr)
 {
 	if (ptr->is_ready_to_exit == 1)
 	{
+		ft_printf("step : %d\n", ++ptr->p.steps);
 		free_mlx_res(ptr);
 	}
 }
@@ -50,7 +51,7 @@ int	hand_event(int key, t_long *ptr)
 int	main(int ac, char **av)
 {
 	t_long	*ptr;
-
+	(void)av;
 	if (ac == 2)
 	{
 		ptr = malloc(sizeof(t_long));
@@ -61,6 +62,8 @@ int	main(int ac, char **av)
 			return (1);
 		init_struct_var(ptr, av);
 		map_errors(ptr, av);
+		get_cord_palyer(ptr);
+		path_flood_fil(ptr);
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
 				* 60, "so_long");
 		if (!(ptr->mlx_win))
@@ -69,8 +72,6 @@ int	main(int ac, char **av)
 		}
 		fill_image_addr(ptr);
 		put_all_images_to_wind(ptr);
-		get_cord_palyer(ptr);
-		path_flood_fil(ptr);
 		hooks_and_free(ptr);
 	}
 	return (0);

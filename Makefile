@@ -72,6 +72,3 @@ fclean:
 	rm -f $(NAME) $(NAMEB) $(OBJ) $(OBJS)
 
 re:fclean all
-
-git:
-	git add . && git commit -m "go" && git push
