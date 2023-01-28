@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 13:04:55 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/26 18:15:20 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:51:14 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,11 @@ int	hand_event(int key, t_long *ptr)
 int	main(int ac, char **av)
 {
 	t_long	*ptr;
-	(void)av;
 	if (ac == 2)
 	{
 		ptr = malloc(sizeof(t_long));
 		if (!ptr)
-			exit(0);
+			exit(4);
 		ptr->mlx_ptr = mlx_init();
 		if (!(ptr->mlx_ptr))
 			return (1);
@@ -67,11 +66,10 @@ int	main(int ac, char **av)
 		ptr->mlx_win = mlx_new_window(ptr->mlx_ptr, ptr->width * 60, ptr->height
 				* 60, "so_long");
 		if (!(ptr->mlx_win))
-		{
 			free_mlx_res(ptr);
-		}
 		fill_image_addr(ptr);
 		put_all_images_to_wind(ptr);
+		free(ptr->string);
 		hooks_and_free(ptr);
 	}
 	return (0);

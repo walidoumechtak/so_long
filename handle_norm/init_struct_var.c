@@ -6,7 +6,7 @@
 /*   By: woumecht <woumecht@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 14:55:47 by woumecht          #+#    #+#             */
-/*   Updated: 2023/01/15 08:34:40 by woumecht         ###   ########.fr       */
+/*   Updated: 2023/01/28 20:26:21 by woumecht         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,17 @@ void	init_struct_var(t_long *ptr, char **av)
 	ptr->height = 0;
 	ptr->string = map_to_array(av[1]);
 	if (ptr->string == NULL)
-		exit(0);
+		exit(1);
 	ptr->arr = ft_split(ptr->string, '\n');
 	ptr->flood_arr = ft_split(ptr->string, '\n');
 	ptr->width = ft_strlen(ptr->arr[0]);
 	while (ptr->arr[ptr->height])
 		ptr->height++;
+	if (ptr->width > 30 || ptr->height > 20)
+	{
+		ft_printf("the size of window is tooooooo large\n");
+		exit(3);
+	}
 	ptr->p.steps = 0;
 	ptr->is_ready_to_exit = 0;
 	ptr->is_near_exit = 0;
